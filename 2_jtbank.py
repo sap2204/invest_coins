@@ -16,21 +16,21 @@ async def get_jtbank():
     print(len(coin_list))
 
     for coin in coin_list:
-        coin_name = coin.find('.name')[0]
+        coin_name = coin.find('.name')[0].text
 
-        coin_weight = coin.find('.weight')[0]
+        coin_weight = coin.find('.weight')[0].text
 
-        coin_me = coin.find('li')[0]
+        coin_me = coin.find('li')[0].text
 
-        coin_nominal = coin.find('li')[4]
+        coin_nominal = coin.find('li')[4].text
 
-        coin_price = coin.find('.selling-price')[0]
+        coin_price = coin.find('.selling-price')[0].text
         
-        print(coin_name.text)
-        print(coin_weight.text)
-        print(coin_me.text)
-        print(coin_nominal.text)
-        print(coin_price.text)
+        print(coin_name)
+        print(coin_weight)
+        print(coin_me)
+        print(coin_nominal)
+        print(coin_price)
         print()
 
  

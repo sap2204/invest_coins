@@ -5,26 +5,26 @@ from fake_useragent import UserAgent
 user = UserAgent().random
 header = {"user_agent": user}
 
-url = "https://ndb24.ru/bank/coins.html"
 
 asession = AsyncHTMLSession()
 
+url = "https://timerbank.ru/individuals/metal-coins/?type=list"
 
-async def get_ndb():
-    r = await asession.get(url=url, headers=header)
+async def get_timer():
+    r = await asession.get(url=url, headers= header)
 
-    coin_list = r.html.find('.col-sm-8')
-    
+    coin_list = r.html.find('.coinMiniCard')
+
     for coin in coin_list:
-        coin_name = coin.find('h6')[0].text
+        coin_name = coin.find('.cmc_name')[0].text
 
-        coin_weight = coin.find('li')[2].text
+        coin_weight = coin.find('li')[3].text
 
         coin_me = coin.find('li')[1].text
 
         coin_nominal = coin.find('li')[0].text
 
-        coin_price = coin.find('li')[6].text
+        coin_price = coin.find('p')[1].text
 
         print(coin_name)
         print(coin_weight)
@@ -33,5 +33,8 @@ async def get_ndb():
         print(coin_price)
         print()
 
+    
 
-asession.run(get_ndb)
+
+
+asession.run(get_timer)
