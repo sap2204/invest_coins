@@ -1,5 +1,14 @@
 from requests_html import AsyncHTMLSession
 from fake_useragent import UserAgent
+import re
+
+# Паттерны регулярных выражений
+weight_pattern = r'\d+[.,]\d+'
+me_pattern = r'(серебро|золото)'
+nominal_pattern = r'\d+'
+price_pattern = r'\d+'
+user = UserAgent().random
+header = {"user_agent": user}
 
 
 user = UserAgent().random

@@ -1,3 +1,12 @@
+from base_simple_scraper import SimpleScraper
+
+dalena = SimpleScraper("https://www.dalenabank.ru/chastnym-klientam/monety/")
+
+dalena.get_data_from_bank()
+
+
+
+'''
 from requests_html import AsyncHTMLSession
 from fake_useragent import UserAgent
 import re
@@ -47,3 +56,5 @@ async def get_dalenabank():
 
 
 asession.run(get_dalenabank)
+
+'''
